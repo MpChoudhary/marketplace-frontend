@@ -1,0 +1,136 @@
+.vertical-align {
+  line-height: 55px;
+}
+
+.header-color {
+  color: #214f78;
+}
+
+.btm-border {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/*
+   * Nav Bar
+   */
+
+.nav-bg {
+  background: #ebebeb;
+  border: 1px solid #c2c2c2;
+}
+
+.product-nav-item {
+  padding: 3.5px 45px;
+  border: #c2c2c2 solid 1px;
+  display: inline;
+}
+
+.active {
+  background: #7f7f7f;
+  color: white;
+  font-weight: bold;
+}
+
+/*
+   * Summary Table
+   */
+.summary-table {
+  width: 100%;
+}
+
+.summary-table > thead > tr {
+  border-top: 2px #afb0b0 solid;
+  border-bottom: 2px #afb0b0 solid;
+  color: #4b4b4b;
+  padding-left: 20px;
+}
+
+.summary-table > thead > tr > th:first-child {
+  width: 35%;
+  font-weight: normal;
+  padding-left: 20px;
+}
+
+.summary-table > thead > tr > th:nth-child(2) {
+  width: 65%;
+}
+
+.summary-table > tbody > tr > td:first-child {
+  background: #f2f2f2;
+  padding-left: 20px;
+}
+
+.summary-table > tbody > tr > td:nth-child(2) {
+  padding-left: 20px;
+  border-bottom: solid 2px #f2f2f2;
+}
+
+.summary-table > tbody {
+  border-bottom: solid 2px #afb0b0;
+}
+
+.summary-table > tbody > tr:last-child > td:last-child {
+  border-bottom: 0px;
+}
+
+.product-content {
+  overflow-y: scroll;
+  height: 500px;
+  max-height: 500px;
+}
+
+/*
+   * Min & Max handler
+   */
+.min-max-bg {
+  background: #f2f2f2;
+}
+
+/*
+   * Details table
+   */
+.detail-table > thead > tr > th {
+  border-top: 2px #afb0b0 solid;
+  border-bottom: 2px #afb0b0 solid;
+  color: #4b4b4b;
+  padding-left: 20px;
+}
+
+.detail-table > tbody > tr:nth-child(odd) {
+  background: #f2f2f2;
+}
+
+.detail-table {
+  width: 100%;
+}
+
+/*
+   * Contact table
+   */
+.contact-table {
+  width: 100%;
+}
+
+.contact-table > thead > tr > th:first-child {
+  width: 35%;
+}
+
+.contact-table > thead > tr > th {
+  border-top: 2px #afb0b0 solid;
+  border-bottom: 2px #afb0b0 solid;
+  color: #4b4b4b;
+  padding-left: 20px;
+}
+
+.contact-table > tbody > tr > td:first-child {
+  background: #f2f2f2;
+  padding-left: 20px;
+}
+
+.contact-table > tbody > tr > td:nth-child(2) {
+  padding-left: 20px;
+}
+
+.contact-table > tbody {
+  border-bottom: #afb0b0 solid 2px;
+}

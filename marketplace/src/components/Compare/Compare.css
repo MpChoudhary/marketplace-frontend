@@ -1,0 +1,67 @@
+/*
+ * Background
+ */
+
+.compare-bg {
+  border: 1px #c5c8cc solid;
+  background: white;
+  margin: auto;
+  width: 100%;
+  overflow: scroll;
+  height: 900px;
+}
+
+/*
+   * Table
+   */
+
+.compare-table > thead > tr > th:not(:first-child) {
+  border: 1px solid #a6a6a6;
+}
+
+.compare-table > thead > tr > th {
+  width: 330px;
+}
+
+.compare-table > tbody > tr > td {
+  width: 300px;
+  padding: 3px 0 3px 20px;
+  border: 1px #a7a7a7 solid;
+}
+
+.compare-table
+  > tbody
+  > tr:not(:first-child):not(:nth-child(5)):not(:nth-child(11)):not(:nth-child(21))
+  > td:first-child {
+  background: #f2f2f2;
+}
+
+.compare-table
+  > tbody
+  > tr:not(:first-child):not(:nth-child(4)):not(:nth-child(5)):not(:nth-child(10)):not(:nth-child(11)):not(:nth-child(20)):not(:nth-child(21)):not(:nth-child(23))
+  > td:not(:first-child) {
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.compare-table
+  > tbody
+  > tr:not(:first-child):not(:nth-child(5)):not(:nth-child(11)):not(:nth-child(21))
+  > td:not(:first-child) {
+  text-align: center;
+}
+
+.compare-table
+  > tbody
+  > tr:not(:first-child):not(:nth-child(4)):not(:nth-child(5)):not(:nth-child(10)):not(:nth-child(11)):not(:nth-child(20)):not(:nth-child(21)):not(:nth-child(23))
+  > td:first-child {
+  border-bottom: #f2f2f2 1px solid;
+}
+
+/*
+   * Min & Max
+   */
+
+.min,
+.max {
+  background: #f2f2f2;
+}
