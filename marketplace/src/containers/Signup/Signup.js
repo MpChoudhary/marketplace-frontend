@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import { Redirect } from 'react-router-dom';
-
 import axios from 'axios';
 
 import Input from '../../components/UI/Input/Input';
@@ -94,7 +92,6 @@ class Signup extends Component {
   }
 
   inputChangedHandler = (event, controlName) => {
-    // console.log(...this.state.controls);
     const updatedControls = {
       ...this.state.controls,
       [controlName]: {
@@ -107,8 +104,6 @@ class Signup extends Component {
         touched: true
       }
     };
-    console.log(updatedControls);
-    console.log(this.state);
     let formIsValid = true;
     for (let inputIdentifier in updatedControls) {
       formIsValid = updatedControls[inputIdentifier].valid && formIsValid;
@@ -129,7 +124,6 @@ class Signup extends Component {
     axios
       .post(url, signupData)
       .then(response => {
-        console.log(response);
         this.setState({ successMessage: response.data.message });
       })
       .catch(err => {
@@ -146,7 +140,6 @@ class Signup extends Component {
         config: this.state.controls[key]
       });
     }
-    console.log(formElementsArray.length);
     let form = formElementsArray.map(formElement => (
       <Input
         key={formElement.id}
@@ -181,7 +174,7 @@ class Signup extends Component {
         {errorMessage}
         <img
           style={{
-            paddingLeft: '5%',
+            paddingLeft: '29%',
             width: '70%',
             height: '5%',
             display: 'inline-block'
@@ -189,7 +182,7 @@ class Signup extends Component {
           src={Logo}
           alt="logo"
         />
-        <p style={{ paddingLeft: '5%' }}>
+        <p style={{ paddingLeft: '5%', textAlign: 'center' }}>
           {'Building Product Selection Platform'}
         </p>
         <form onSubmit={this.submitHandler}>
@@ -204,98 +197,3 @@ class Signup extends Component {
 }
 
 export default Signup;
-
-// import React from "react";
-
-// // import "./Login.css";
-
-// const Signup = ({
-//   onEmailChange,
-//   onPasswordChange,
-//   onFirstNameChange,
-//   onLastNameChange,
-//   onSubmitSignIn,
-//   disabled,
-//   userInvalid,
-//   userShouldValidate,
-//   userTouched,
-//   passwordInvalid,
-//   passwordShouldValidate,
-//   passwordTouched,
-//   firstInvalid,
-//   firstShouldValidate,
-//   firstTouched,
-//   lastInvalid,
-//   lastShouldValidate,
-//   lastTouched
-// }) => {
-//   const inputUserClasses = ["Login", "input-field"];
-//   const inputPassClasses = ["Login", "input-field"];
-//   const inputFirstClasses = ["Login", "input-field"];
-//   const inputLastClasses = ["Login", "input-field"];
-
-//   if (userInvalid && userShouldValidate && userTouched) {
-//     inputUserClasses.push("Invalid");
-//   }
-//   if (passwordInvalid && passwordShouldValidate && passwordTouched) {
-//     inputPassClasses.push("Invalid");
-//   }
-//   if (firstInvalid && firstShouldValidate && firstTouched) {
-//     inputFirstClasses.push("Invalid");
-//   }
-//   if (lastInvalid && lastShouldValidate && lastTouched) {
-//     inputLastClasses.push("Invalid");
-//   }
-
-//   return (
-//     <div className="Login" style={{ margin: "auto", width: "20%" }}>
-//       {/*<form>*/}
-//       <div className="input-icons">
-//         <input
-//           className={inputUserClasses.join(" ")}
-//           type="text"
-//           placeholder="Username or Email"
-//           onChange={onEmailChange}
-//           style={{ borderColor: "none" }}
-//         />
-//       </div>
-//       <div className="input-icons">
-//         <input
-//           className={inputPassClasses.join(" ")}
-//           type="text"
-//           placeholder="Password"
-//           onChange={onPasswordChange}
-//         />
-//       </div>
-//       <div className="input-icons">
-//         <input
-//           className={inputFirstClasses.join(" ")}
-//           type="text"
-//           placeholder="First Name"
-//           onChange={onFirstNameChange}
-//         />
-//       </div>
-//       <div className="input-icons">
-//         <input
-//           className={inputLastClasses.join(" ")}
-//           type="text"
-//           placeholder="Last Name"
-//           onChange={onLastNameChange}
-//         />
-//       </div>
-//       <div>
-//         <button
-//           type="submit"
-//           style={{ float: "right", backgroundColor: "blue" }}
-//           onClick={onSubmitSignIn}
-//           disabled={disabled}
-//         >
-//           Login
-//         </button>
-//       </div>
-//       {/*</form>*/}
-//     </div>
-//   );
-// };
-
-// export default Signup;

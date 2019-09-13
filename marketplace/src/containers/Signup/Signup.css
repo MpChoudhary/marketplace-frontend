@@ -1,8 +1,6 @@
 .App {
   background-image: linear-gradient(#81b4eb, white);
-  text-align: center;
   font-family: inherit;
-  /* padding-top: 20vh; */
 }
 
 .center {

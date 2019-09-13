@@ -32,8 +32,8 @@ class Products extends React.Component {
   };
 
   render() {
-    console.log(this.props);
-    console.log('=========== HISTORY ============ ' + this.props.history);
+    // console.log(this.props);
+    // console.log('=========== HISTORY ============ ' + this.props.history);
 
     let compareBtn;
     if (this.state.compareProducts.length > 1) {
@@ -56,15 +56,18 @@ class Products extends React.Component {
         details={productDetail}
       />
     ));
-    console.log('===========Search Item==========' + this.props.searchItem);
+    // console.log('===========Search Item==========' + this.props.searchItem);
 
     return (
       <div className="new-bg" style={{ borderTop: '1px solid grey' }}>
         <div className="row">
-          <div className="col-3" style={{ border: '1px solid grey' }}>
+          <div
+            className="col-3"
+            style={{ border: '1px solid grey', height: '79vh' }}
+          >
             <SideBar />
           </div>
-          <div className="col-9">
+          <div className="col-9" style={{}}>
             <div style={{ float: 'left' }}>
               <p
                 className="font-weight-bold mt-2 mb-0 ml-4 text-secondary"
@@ -76,12 +79,21 @@ class Products extends React.Component {
                 {this.props.searchItem}
               </p>
             </div>
-            <div className="flex-container" className={{ clear: 'both' }}>
+            <div
+              // className="flex-container"
+              style={{
+                clear: 'both',
+                cursor: 'pointer',
+                margin: '10px',
+                textAlign: 'center',
+                transition: '0.15s all'
+              }}
+            >
               {productList}
             </div>
           </div>
         </div>
-        <div className="text-right px-5 pt-2 pb-4">{compareBtn}</div>
+        <div className="text-right px-5 pb-3">{compareBtn}</div>
       </div>
       // <div style={{ borderTop: '2px solid grey' }}>
       //   <SideBar />

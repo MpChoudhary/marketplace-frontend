@@ -47,11 +47,10 @@ export const auth = (email, password, isSignup) => {
       username: email,
       password: password
     };
-    let url = 'http://localhost:8080/api/auth/signin';
+    // let url = 'http://localhost:8080/api/auth/signin';
     axios
-      .post(url, authData)
+      .post('/api/auth/signin', authData)
       .then(response => {
-        console.log(response.data.expiresIn);
         const expirationDate = new Date(
           new Date().getTime() + response.data.expiresIn
         );

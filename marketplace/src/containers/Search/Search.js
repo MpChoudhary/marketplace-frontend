@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+import './Search.css';
 import {
   setSearchField,
   requestCategories
@@ -13,8 +14,8 @@ class Search extends React.Component {
   state = {
     redirect: false
   };
+
   componentDidMount() {
-    console.log('================Search');
     console.log(this.props.stateCategories);
     this.props.onRequestCategories();
   }
@@ -22,11 +23,8 @@ class Search extends React.Component {
   submitHandler = event => {
     event.preventDefault();
     const { searchItem, stateCategories } = this.props;
-    console.log(this.props.stateCategories);
-    console.log(this.props.searchItem);
 
     stateCategories.map(category => {
-      console.log(category);
       if (category.name === searchItem) {
         this.setState({ redirect: true });
       }
@@ -59,35 +57,37 @@ class Search extends React.Component {
         {product}
         <img
           style={{
-            paddingLeft: '5%',
+            paddingLeft: '29%',
             width: '70%',
             height: '5%',
-            display: 'inline-block'
+            display: 'inline-block',
+            textAlign: 'center'
           }}
           src={Logo}
           alt="logo"
         />
-        <p style={{ paddingLeft: '5%' }}>
+        <p style={{ paddingLeft: '5%', textAlign: 'center' }}>
           {'Building Product Selection Platform'}
         </p>
-        <form onSubmit={this.submitHandler}>
+        <form onSubmit={this.submitHandler} className="w-100">
           <div className="row my-3">
             <div className="col input-container">
-              <select className="select-category">{options}</select>
+              <div className="col-mx-3">
+                <select className="select-category">{options}</select>
+              </div>
+              {/* //  */}
               <div className="arrow-down" id="search-arrow" />
-              <input onChange={onSearchChange} />
+              <input
+                className="col-mx-8"
+                onChange={onSearchChange}
+                placeholder="Search..."
+              />
               <div className="arrow-down" id="input-arrow" />
-              {/* <div> */}
-              <button
-              // className="input-logo"
-              // id="search-btn"
-              // onClick={this.submitHandler}
-              >
-                Search
-                {/* <i id="search-logo" className="fas fa-search" /> */}
-              </button>
-              {/* </div> */}
-              {/* {optionsList} */}
+              <div>
+                <button className="input-logo" id="search-btn">
+                  <i id="search-logo" className="fas fa-search" />
+                </button>
+              </div>
             </div>
           </div>
         </form>
@@ -97,24 +97,15 @@ class Search extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.categories);
-  // for (let i in state.categories.categories) {
-  //   console.log(state.categories.categories);
-  //   if (state.categories.categories[i].name === state.search.searchField) {
-  //     return { redirect: true };
-  //   }
-  // }
   return {
     stateCategories: state.categories.categories,
     searchItem: state.search.searchField
-    // redirect: false
   };
 };
 
 const mapStateToDispatch = dispatch => {
   return {
     onSearchChange: event => {
-      console.log(event.target.value);
       dispatch(setSearchField(event.target.value));
     },
     onRequestCategories: () => dispatch(requestCategories())

@@ -15,15 +15,9 @@ export const setSearchField = text => {
 };
 
 export const requestCategories = () => dispatch => {
-  // const url = 'http://localhost:8080/CategoryHandler';
   const data = {
     request: 'get_all'
   };
-  // const options = {
-  //   Authoriztion:
-  //     'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtdWtlc2giLCJpYXQiOjE1Njc5NjcyMzQsImV4cCI6MTU2Nzk3MDgzNH0.yp5y1o_0iZEZ4pKRlxBHxSi3O6Z6FdXpwmWF_8c8lSnCwNn1RuKrV-9nvVl01dicZAECvO-er37FPfXiA5BX_Q'
-  //   //  + localStorage.getItem('token')
-  // };
   dispatch({ type: REQUEST_CATEGORY_START });
   axios
     .post('/CategoryHandler', data)

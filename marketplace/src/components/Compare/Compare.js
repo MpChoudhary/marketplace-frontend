@@ -138,10 +138,7 @@ class Compare extends Component {
         <th className="text-center" key={product.id}>
           <div className="row no-gutters pt-2 px-1">
             <div className="col text-left">
-              <button className="add-to-btn input-container">
-                Add to
-                <div className="arrow-down" id="input-arrow" />
-              </button>
+              <button className="add-to-btn input-container">Add to</button>
             </div>
             <div className="col text-right">
               <p className="small">Verified 09/09/2019</p>

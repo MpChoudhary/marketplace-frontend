@@ -1,14 +1,12 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { set, fail } from '../../store/actions/product';
-import { Redirect, withRouter } from 'react-router-dom';
+import { set } from '../../store/actions/product';
+import { withRouter } from 'react-router-dom';
 
 import './Product.css';
 
 function Product(props) {
-  console.log(props.details);
-  console.log(props.history);
   const img_size = {
       width: '99%%',
       height: '170px'
@@ -27,13 +25,6 @@ function Product(props) {
 
   const handleClick = () => {
     props.history.push(props.match.url + '/' + props.details.id);
-    // let url = '/products/'+props.details.id;
-    // <Redirect to= url />
-
-    // if (true) {
-    //   redirect = <Redirect to="products/detail" />;
-    // }
-    // console.log(props.details);
     props.set(props.details);
   };
 
@@ -48,8 +39,6 @@ function Product(props) {
 
   return (
     <div
-      // className="grow shadow-5"
-      // {...redirect}
       style={{
         border: '1px solid grey',
         float: 'left',
@@ -93,29 +82,9 @@ function Product(props) {
           <span className="checkbox-lbl text-secondary">Compare</span>
         </div>
         <div style={{ paddingRight: '20px' }}>
-          <button className="add-to-btn input-container mr-0">
-            Add to
-            <div className="arrow-down" id="input-arrow" />
-          </button>
+          <button className="add-to-btn input-container mr-0">Add to</button>
         </div>
       </div>
-      {/* <img src={props.details.image_url} alt="image" />
-      <div className="desc">
-        <p>{props.details.manufacter}</p>
-        <p>{props.details.series}</p>
-        <p>{props.details.model}</p>
-      </div>
-      <div className="specs">
-        <p>{props.details.air_flow}</p>
-        <p>{props.details.numbers_of_fan_speed}</p>
-        <p>{props.details.sound_at_max_speed}</p>
-        <p>{props.details.fan_sweep_diameter}</p>
-      </div>
-      <div className="specs">
-        <p>Past specification</p>
-        <p>{props.details.firm}</p>
-        <p>{props.details.global}</p>
-      </div> */}
     </div>
   );
 }
@@ -164,4 +133,20 @@ use_type: "outdoor"
 voltage: "[90,500]"
 web: "https://www.google.com"
 weight: "15"
-*/
+{/* <img src={props.details.image_url} alt="image" />
+      <div className="desc">
+        <p>{props.details.manufacter}</p>
+        <p>{props.details.series}</p>
+        <p>{props.details.model}</p>
+      </div>
+      <div className="specs">
+        <p>{props.details.air_flow}</p>
+        <p>{props.details.numbers_of_fan_speed}</p>
+        <p>{props.details.sound_at_max_speed}</p>
+        <p>{props.details.fan_sweep_diameter}</p>
+      </div>
+      <div className="specs">
+        <p>Past specification</p>
+        <p>{props.details.firm}</p>
+        <p>{props.details.global}</p>
+      </div> */

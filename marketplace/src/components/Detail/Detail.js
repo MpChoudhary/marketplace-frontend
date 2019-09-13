@@ -1,12 +1,11 @@
 import React from 'react';
-// import * as actions from '../../../store/actions/package';
 import { connect } from 'react-redux';
+
 import './Detail.css';
 
 function Detail(props) {
   console.log(props);
   console.log(props.details);
-  //   console.log('=========Product=======' + this.props.product);
   const img_size = {
       width: '70px',
       height: '60px',
@@ -42,7 +41,6 @@ function Detail(props) {
 
   return (
     <div className="new-bg">
-      {/* Breadcrumb */}
       <div className="btm-border">
         <p className="font-weight-bold mb-0 pt-2 pl-3">
           <span className="header-color">
@@ -52,7 +50,6 @@ function Detail(props) {
         </p>
       </div>
 
-      {/* Product Header */}
       <div className="row px-3" style={header_height}>
         <div className="col-4 px-0">
           <img
@@ -77,13 +74,11 @@ function Detail(props) {
         <div className="col-5 text-right">
           <button className="add-to-btn input-container mr-2 mt-2">
             Add to
-            <div className="arrow-down" id="input-arrow" />
           </button>
         </div>
       </div>
 
       <div>
-        {/* Navigation */}
         <nav className="nav-bg">
           <li className="product-nav-item">Product Summary</li>
           <li className="product-nav-item">Product Details</li>
@@ -248,7 +243,6 @@ function Detail(props) {
             </div>
           </div>
 
-          {/* Product Detail */}
           <div className="px-2">
             <h5 className="header-color pt-3">Product Details</h5>
             <table className="detail-table">
@@ -341,12 +335,6 @@ const mapStateToProps = state => {
     searchItem: state.search.searchField
   };
 };
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     search: category => dispatch(actions.search(category))
-//   };
-// };
 
 export default connect(
   mapStateToProps,

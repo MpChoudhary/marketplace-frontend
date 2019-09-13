@@ -3,16 +3,15 @@
   flex-wrap: wrap;
 }
 
-.flex-container > div {
+/* .flex-container > div {
   width: 23%;
-  margin: 10px;
-  text-align: center;
+  
   border: 1px solid #dddddd;
-  transition: 0.15s all;
-}
+  
+} */
 
 .flex-container > div:hover {
-  transform: scale(1.02);
+  transform: scale(1);
 }
 
 .new-bg {

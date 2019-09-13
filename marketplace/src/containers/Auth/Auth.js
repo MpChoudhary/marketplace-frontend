@@ -80,8 +80,6 @@ class Auth extends Component {
         touched: true
       }
     };
-    // console.log(updatedControls[controlName].valid);
-    // console.log(this.state);
     let formIsValid = true;
     for (let inputIdentifier in updatedControls) {
       formIsValid = updatedControls[inputIdentifier].valid && formIsValid;
@@ -137,7 +135,6 @@ class Auth extends Component {
     }
 
     let authRedirect = null;
-    // console.log(this.props.isAuthenticated);
     if (this.props.isAuthenticated) {
       // authRedirect = <Redirect to="/search" />;
     }
@@ -151,15 +148,16 @@ class Auth extends Component {
         {errorMessage}
         <img
           style={{
-            paddingLeft: '5%',
+            paddingLeft: '29%',
             width: '70%',
             height: '5%',
-            display: 'inline-block'
+            display: 'inline-block',
+            textAlign: 'center'
           }}
           src={Logo}
           alt="logo"
         />
-        <p style={{ paddingLeft: '5%' }}>
+        <p style={{ textAlign: 'center' }}>
           {'Building Product Selection Platform'}
         </p>
         <form onSubmit={this.submitHandler}>
@@ -184,7 +182,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // onAuth: ( email, password, isSignup ) => dispatch({type:actionTypes.AUTH_START}）,
     onAuth: (email, password, isSignup) =>
       dispatch(actions.auth(email, password, isSignup)),
     onSetAuthRedirectPath: () =>
