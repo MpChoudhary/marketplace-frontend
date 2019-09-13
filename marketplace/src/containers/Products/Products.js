@@ -32,9 +32,6 @@ class Products extends React.Component {
   };
 
   render() {
-    // console.log(this.props);
-    // console.log('=========== HISTORY ============ ' + this.props.history);
-
     let compareBtn;
     if (this.state.compareProducts.length > 1) {
       let path = this.props.match.url + '/compare';
@@ -56,7 +53,6 @@ class Products extends React.Component {
         details={productDetail}
       />
     ));
-    // console.log('===========Search Item==========' + this.props.searchItem);
 
     return (
       <div className="new-bg" style={{ borderTop: '1px solid grey' }}>
@@ -80,7 +76,6 @@ class Products extends React.Component {
               </p>
             </div>
             <div
-              // className="flex-container"
               style={{
                 clear: 'both',
                 cursor: 'pointer',
@@ -95,29 +90,12 @@ class Products extends React.Component {
         </div>
         <div className="text-right px-5 pb-3">{compareBtn}</div>
       </div>
-      // <div style={{ borderTop: '2px solid grey' }}>
-      //   <SideBar />
-      //   <div>
-      //     <p
-      //       className="font-weight-bold mt-2 mb-0 ml-4 text-secondary"
-      //       style={{ float: 'left' }}
-      //     >
-      //       <span className="active-breadcrum" style={{ color: 'blue' }}>
-      //         Mechanical <span className="mx-2">></span>{' '}
-      //       </span>
-      //       {this.props.searchItem}
-      //     </p>
-      //     {productList}
-      //   </div>
-      //   <div className="text-right px-5 pt-2 pb-4">{compareBtn}</div>
-      // </div>
     );
   }
 }
 
 const mapStateToProps = state => {
   for (let i in state.categories.categories) {
-    console.log(state.categories.categories);
     if (state.categories.categories[i].name === state.search.searchField) {
       return {
         details: state.categories.categories[i].products,
@@ -137,21 +115,3 @@ export default connect(
   mapStateToProps,
   mapStateToDispatch
 )(Products);
-
-// <div style={{ paddingTop: '2%', border: '1px solid black' }}></div>
-
-// const url = 'http://localhost:8080/ProductHandler';
-// const productData = {
-//   request: 'get_all'
-// };
-// const options = {
-//   headers: { Authorization: 'Bearer ' + this.props.token }
-// };
-// axios
-//   .post(url, productData, options)
-//   .then(res => {
-//     console.log(res);
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   });

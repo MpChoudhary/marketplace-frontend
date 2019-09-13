@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { Redirect } from 'react-router-dom';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import classes from './Signup.css';
@@ -66,7 +67,8 @@ class Signup extends Component {
     },
     formIsValid: false,
     errorMessage: '',
-    successMessage: ''
+    successMessage: '',
+    redirect: false
   };
 
   checkValidity(value, rules) {
@@ -124,11 +126,14 @@ class Signup extends Component {
     axios
       .post(url, signupData)
       .then(response => {
-        this.setState({ successMessage: response.data.message });
+        this.setState({
+          successMessage: response.data.message,
+          redirect: true
+        });
       })
       .catch(err => {
         console.log(err);
-        this.setState({ errorMessage: err.message });
+        this.setState({ errorMessage: err.message, redirect: false });
       });
   };
 
@@ -156,15 +161,35 @@ class Signup extends Component {
     let successMessage = null;
 
     if (this.state.successMessage) {
-      successMessage = <p>{this.state.successMessage}</p>;
+      successMessage = (
+        <div
+          className="alert alert-success"
+          role="alert"
+          style={{ textAlign: 'center' }}
+        >
+          <span>{this.state.successMessage}</span>
+        </div>
+      );
     }
 
     let errorMessage = null;
 
     if (this.state.errorMessage) {
-      errorMessage = <h1>{this.state.errorMessage}</h1>;
+      errorMessage = (
+        <div
+          className="alert alert-danger"
+          role="alert"
+          style={{ textAlign: 'center' }}
+        >
+          <span>{this.state.errorMessage}</span>
+        </div>
+      );
     }
 
+    let authRedirect = null;
+    if (this.state.redirect) {
+      authRedirect = <Redirect to="/" />;
+    }
     return (
       <div
         className={classes.Auth}
@@ -172,6 +197,7 @@ class Signup extends Component {
       >
         {successMessage}
         {errorMessage}
+        {authRedirect}
         <img
           style={{
             paddingLeft: '29%',

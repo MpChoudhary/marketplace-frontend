@@ -7,7 +7,8 @@ import './Search.css';
 import {
   setSearchField,
   requestCategories,
-  redirectChange
+  redirectChange,
+  resetRedirect
 } from '../../store/actions/category';
 import Logo from '../Logo.png';
 
@@ -17,7 +18,7 @@ class Search extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props.stateCategories);
+    this.props.onReset();
     this.props.onRequestCategories();
   }
 
@@ -112,7 +113,8 @@ const mapStateToDispatch = dispatch => {
       dispatch(setSearchField(event.target.value));
     },
     onRequestCategories: () => dispatch(requestCategories()),
-    onRedirect: () => dispatch(redirectChange())
+    onRedirect: () => dispatch(redirectChange()),
+    onReset: () => dispatch(resetRedirect())
   };
 };
 

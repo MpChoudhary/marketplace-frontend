@@ -63,9 +63,7 @@ class navigationItems extends React.Component {
                   {/* //  */}
                   <div className="arrow_down" id="search_arrow" />
                   <input
-                    // className="col-mx-5"
                     style={{ marginLeft: '113px', width: '78%', height: '75%' }}
-                    // onChange={onSearchChange}
                     placeholder="Search..."
                   />
                   <div className="arrow_down" id="input_arrow" />
@@ -76,10 +74,6 @@ class navigationItems extends React.Component {
                   </div>
                 </div>
               </div>
-              {/* <div>
-                <select>{options}</select>
-              </div>
-              <input style={{}} /> */}
             </li>
           </ClassAux>
         ) : null}
@@ -92,7 +86,6 @@ class navigationItems extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.redirect.redirect);
   return {
     isRedirect: state.redirect.redirect,
     isAuthenticated: state.auth.token !== null,

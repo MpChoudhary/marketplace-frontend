@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
@@ -131,12 +130,7 @@ class Auth extends Component {
     let errorMessage = null;
 
     if (this.props.error) {
-      errorMessage = <p>{this.props.error.message}</p>;
-    }
-
-    let authRedirect = null;
-    if (this.props.isAuthenticated) {
-      // authRedirect = <Redirect to="/search" />;
+      errorMessage = <p style={{ textAlign: 'center' }}>{this.props.error}</p>;
     }
 
     return (
@@ -144,7 +138,7 @@ class Auth extends Component {
         className={classes.Auth}
         style={{ margin: 'auto', width: '25%', paddingTop: '8%' }}
       >
-        {authRedirect}
+        {/* {authRedirect} */}
         {errorMessage}
         <img
           style={{
@@ -173,8 +167,8 @@ class Auth extends Component {
 
 const mapStateToProps = state => {
   return {
-    loading: state.loading,
-    error: state.error,
+    loading: state.auth.loading,
+    error: state.auth.error,
     isAuthenticated: state.auth.token !== null,
     authRedirectPath: state.authRedirectPath
   };
@@ -193,9 +187,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Auth);
-
-// componentDidMount() {
-//   if (this.props.authRedirectPath !== '/') {
-//     this.props.onSetAuthRedirectPath();
-//   }
-// }

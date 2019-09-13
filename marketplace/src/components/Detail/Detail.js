@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import './Detail.css';
 
 function Detail(props) {
-  console.log(props);
-  console.log(props.details);
   const img_size = {
       width: '70px',
       height: '60px',
