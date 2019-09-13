@@ -120,7 +120,7 @@ class Signup extends Component {
       name: this.state.controls.name.value,
       role: ['user']
     };
-    let url = 'http://localhost:8080/api/auth/signu';
+    let url = '/api/auth/signup';
     axios
       .post(url, signupData)
       .then(response => {

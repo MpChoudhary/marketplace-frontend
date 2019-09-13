@@ -6,7 +6,8 @@ import { Redirect } from 'react-router-dom';
 import './Search.css';
 import {
   setSearchField,
-  requestCategories
+  requestCategories,
+  redirectChange
 } from '../../store/actions/category';
 import Logo from '../Logo.png';
 
@@ -26,6 +27,7 @@ class Search extends React.Component {
 
     stateCategories.map(category => {
       if (category.name === searchItem) {
+        this.props.onRedirect();
         this.setState({ redirect: true });
       }
     });
@@ -78,7 +80,8 @@ class Search extends React.Component {
               {/* //  */}
               <div className="arrow-down" id="search-arrow" />
               <input
-                className="col-mx-8"
+                // className="col-mx-5"
+                style={{ marginLeft: '113px', width: '78%', height: '75%' }}
                 onChange={onSearchChange}
                 placeholder="Search..."
               />
@@ -108,7 +111,8 @@ const mapStateToDispatch = dispatch => {
     onSearchChange: event => {
       dispatch(setSearchField(event.target.value));
     },
-    onRequestCategories: () => dispatch(requestCategories())
+    onRequestCategories: () => dispatch(requestCategories()),
+    onRedirect: () => dispatch(redirectChange())
   };
 };
 

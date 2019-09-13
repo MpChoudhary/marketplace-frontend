@@ -17,14 +17,14 @@
 .select-category {
   /* display: table-cell; */
   position: absolute;
-  width: 150px;
+  width: 117px;
   height: 79%;
   border: #a6a6a6 2px solid;
   border-radius: 8px;
   background: #d9d9d9;
   color: #616161;
   padding-left: 10px;
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 #searchInput {
@@ -48,7 +48,7 @@ select {
 }
 
 #search-arrow {
-  left: 35%;
+  left: 22%;
   top: 15px;
 }
 

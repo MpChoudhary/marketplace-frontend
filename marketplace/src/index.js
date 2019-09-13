@@ -16,6 +16,7 @@ import { searchCategory, requestCategories } from './store/reducers/category';
 import authReducer from './store/reducers/auth';
 import productReducer from './store/reducers/product';
 import compareReducer from './store/reducers/compare';
+import redirectReducer from './store/reducers/redirect';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -40,6 +41,7 @@ const rootReducer = combineReducers({
   compare: compareReducer,
   product: productReducer,
   search: searchCategory,
+  redirect: redirectReducer,
   categories: requestCategories,
   auth: authReducer
 });
